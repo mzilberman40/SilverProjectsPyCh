@@ -1,0 +1,15 @@
+{% extends 'anecdotes/base_anecdotes.html' %}
+
+{% block title %}
+    Delete tag {{ tag.title }} -- {{ block.super }}
+{% endblock %}
+
+{% block content %}
+  <form action="{{ tag.get_delete_url }}" method="post">
+      {% csrf_token %}
+      <h3> Are you sure you want to delete <b>"{{ tag.title|title }}"</b> tag? </h3>
+      <a href="{% url 'tags_list_url' %}"> No. I'm not sure :-) </a>
+      <button type="submit" name="button" class="btn btn-danger"> Yes! I'm sure !</button>
+    </form>
+
+{% endblock %}

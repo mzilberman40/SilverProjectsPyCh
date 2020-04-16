@@ -1,0 +1,24 @@
+{% extends 'polyglot/base_polyglot.html' %}
+
+{% block title %}
+ HebrewRoots -- {{block.super}}
+{% endblock %}
+
+{% block content %}
+  <h1 class="mb-5 hebrew"> Hebrew Roots: </h1>
+  <table class="table table-lg table-borderless table-hover hebrew">
+    <tbody>
+      {% for root in page_object.object_list %}
+        <tr>
+        <th scope="row"> <a href="{{root.get_absolute_url}}"><b>{{root.dotroot}}</b></a></th>
+          <td>
+          {% for word in root.ruswords.all %}
+            {{ word.word }},
+          {% endfor %}
+          </td>
+        </tr>
+
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

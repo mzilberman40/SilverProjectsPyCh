@@ -1,0 +1,13 @@
+{% extends 'anecdotes/base_anecdotes.html' %}
+
+{% block title %}
+ Tags List -- {{block.super}}
+{% endblock %}
+
+{% block content %}
+  <h1 class="mb-5"> Tags: </h1>
+  {% for tag in page_object.object_list %}
+    <a href="{{ tag.get_absolute_url }}">   <h4> {{tag.title}} </h4> </a>
+  {% endfor %}
+
+{% endblock %}

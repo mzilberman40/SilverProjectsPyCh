@@ -1,0 +1,25 @@
+<div class="card text-center mb-4">
+  <div class="card-header">
+    <div class="row">
+      <div class="col">
+        id: {{ anecdote.id }}
+      </div>
+      <div class="col">
+        Votes: {{ anecdote.get_votes }}
+      </div>
+      <div class="col">
+        Rating: {{ anecdote.get_rating }}
+      </div>
+      </div>
+  </div>
+  <div class="card-body">
+    <p class="card-text">      {{ anecdote.body|truncatewords:15 }} </p>
+    <a href="{{ anecdote.get_absolute_url }}" class="btn btn-light" > Read </a>
+  </div>
+  <div class="card-footer text-muted text-left">
+    Tags:
+      {% for tag in anecdote.tags.all %}
+        <a href="{{ tag.get_absolute_url }}"> {{ tag.title }} </a>
+      {% endfor %}
+  </div>
+</div>

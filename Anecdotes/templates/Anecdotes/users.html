@@ -1,0 +1,12 @@
+{% extends 'anecdotes/base_anecdotes.html' %}
+
+{% block title %}
+ Users List -- {{block.super}}
+{% endblock %}
+
+{% block content %}
+  <h1 class="mb-5"> Users: </h1>
+  {% for user in page_object.object_list %}
+       <h4> {{user.user}} </h4>
+  {% endfor %}
+{% endblock %}

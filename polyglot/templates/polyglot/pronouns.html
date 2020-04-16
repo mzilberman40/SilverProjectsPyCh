@@ -1,0 +1,26 @@
+{% extends 'polyglot/base_polyglot.html' %}
+
+{% block title %}
+ Pronouns List -- {{block.super}}
+{% endblock %}
+
+{% block content %}
+  <h1 class="mb-5"> Pronouns: </h1>
+  <table class="table table-striped">
+    <tbody>
+      {% for obj in page_object.object_list %}
+        <tr>
+          <th scope="row"><a href="{{ obj.get_absolute_url }}">{{obj.hword}}</a></th>
+          <td><b>{{obj.gender}}</b></td>
+           <td><b>{{obj.number}}</b></td>
+          <td><b>{{obj.pronunciation}}</b></td>
+           <td><b>
+             {% for rword in obj.ruswords.all %}
+             {{ rword }},
+              {% endfor %}
+          </b></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

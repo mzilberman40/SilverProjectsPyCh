@@ -1,0 +1,17 @@
+{% extends 'anecdotes/base_anecdotes.html' %}
+
+{% block title %}
+   {{ tag.title }} -- {{ block.super }}
+{% endblock %}
+
+{% block content %}
+  <h1 class="mb-5"> Anecdotes with tag {{ tag.title|title }} </h1>
+
+  <div class="card text-center mb-4">
+    {% for anecdote in tag.anecdotes.all %}
+      {% include 'Anecdotes/includes/anecdote_card_template.html'%}
+    {% endfor %}
+
+  </div>
+
+{% endblock %}

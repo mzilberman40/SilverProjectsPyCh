@@ -1,0 +1,21 @@
+{% extends base_app_template %}
+
+{% block title %}
+ {{class_name}} List -- {{block.super}}
+{% endblock %}
+
+{% block content %}
+  <h1 class="mb-5"> {{class_name | title}} : </h1>
+  <table class="table table-striped">
+    <tbody>
+      {% for obj in page_object.object_list %}
+        <tr>
+          <th scope="row"><a href="{{ obj.get_absolute_url }}">{{obj.id}}</a></th>
+          {% for field in fields %}
+            <td><b>{{obj.field}}</b></td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

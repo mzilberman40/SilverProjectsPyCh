@@ -1,0 +1,87 @@
+{% extends 'polyglot/base_polyglot.html' %}
+
+{% block title %}
+   Preposition: {{ preposition.id }} -- {{ block.super }}
+{% endblock %}
+
+{% block content %}
+  <h2 class="mb-5"> Preposition:
+      
+      {% if preposition.hword_with_cons %}
+           {{ preposition.hword_with_cons }}
+      {% else %}
+          {{ preposition.hword }}
+      {% endif%}
+      
+  </h2>
+  <div class="card text-center mb-4 mt-4">
+    <div class="card-header">
+      <div class="row">
+        <div class="col text-left">
+          id: {{ preposition.id }}
+        </div>
+        <div class="col text-left">
+            type: {{ preposition.type }}
+        </div>
+        <div class="col text-center">
+          pronunciation:  {{ preposition.pronunciation }}
+        </div>
+        <div class="col text-right">
+         ruswords:
+            
+        {% for rusword in preposition.ruswords.all %}
+            {{ rusword.word }},
+        {% endfor %}
+            
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+        <div>
+            {{ preposition.description }}
+        </div>
+
+        <table class="table table-bordered text-center hebrew">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">f</th>
+              <th scope="col">m</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"> s </th>
+              <td colspan="2">{{ preposition.single_first }}</td>
+            </tr>
+            <tr>
+              <th scope="row">s</th>
+              <td>{{ preposition.single_second_female }}</td>
+              <td>{{ preposition.single_second_male }}</td>
+            </tr>
+            <tr>
+              <th scope="row">s</th>
+              <td>{{ preposition.single_third_female }}</td>
+              <td>{{ preposition.single_third_male }}</td>
+            </tr>
+                  <tr>
+              <th scope="row"> pl </th>
+              <td colspan="2">{{ preposition.plural_first }}</td>
+            </tr>
+            <tr>
+              <th scope="row"> pl </th>
+              <td>{{ preposition.plural_second_female }}</td>
+              <td>{{ preposition.plural_second_male }}</td>
+            </tr>
+            <tr>
+              <th scope="row"> pl </th>
+              <td>{{ preposition.plural_third_female }}</td>
+              <td>{{ preposition.plural_third_male }}</td>
+            </tr>
+          </tbody>
+        </table>
+
+    </div>
+  </div>
+
+{% endblock %}

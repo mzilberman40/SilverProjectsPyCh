@@ -1,0 +1,19 @@
+{% extends 'Billing/base_billing.html' %}
+
+{% block title %}
+ LegalForms -- {{block.super}}
+{% endblock %}
+
+{% block content %}
+  <h1 class="mb-5"> LegalForms: </h1>
+  <table class="table table-striped">
+    <tbody>
+      {% for lform in page_object.object_list %}
+        <tr>
+          <th scope="row"><a href="{{ lform.get_absolute_url }}">{{lform.shortname}}</a></th>
+          <td><b>{{ lform.fullname}}</b></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

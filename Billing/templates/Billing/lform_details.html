@@ -1,0 +1,31 @@
+{% extends 'Billing/base_billing.html' %}
+
+{% block title %}
+   LegalForm: {{ legalform.id }} -- {{ block.super }}
+{% endblock %}
+
+{% block content %}
+  <h2 class="mb-5"> Legal Form: {{ legalform.shortname }} </h2>
+
+  <div class="card text-left mb-4">
+    <div class="card-header">
+      <div class="row">
+        <div class="col text-left">
+          <b>id: {{ legalform.id }}</b>
+        </div>
+        <div class="col text-left">
+          <b>{{ legalform.shortname }}</b>
+        </div>
+        <div class="col text-left">
+          <b>{{ legalform.fullname }}</b>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p class="card-text">{{ legalform.description|linebreaks }} </p>
+    </div>
+    <!-- <div class="card-footer text-muted">
+    </div> -->
+  </div>
+
+{% endblock %}

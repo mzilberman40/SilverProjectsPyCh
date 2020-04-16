@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block admin-panel %}
+
+<div class="btn-group">
+  <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Create
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="{% url 'pron_create_url' %}">Pronoun</a>
+    <a class="dropdown-item" href="{% url 'prep_create_url' %}">Preposition</a>
+    <a class="dropdown-item" href="{% url 'theme_create_url' %}">Theme</a>
+    <a class="dropdown-item" href="{% url 'hebrewroot_create_url' %}">HebrewRoot</a>
+    <a class="dropdown-item" href="{% url 'rusword_create_url' %}">RusWord</a>
+    <a class="dropdown-item" href="{% url 'binyan_create_url' %}">Binyan</a>
+    <a class="dropdown-item" href="{% url 'pos_create_url' %}">PartOfSpeech</a>
+  </div>
+</div>
+
+
+<a href="{{ admin_object.get_update_url }}" class="btn btn-light edit" style="{% if details %} display: block; {% endif %}"> Edit </a>
+<a href="{{ admin_object.get_delete_url }}" class="btn btn-danger delete" style="{% if details %} display: block; {% endif %}"> Delete </a>
+
+{% endblock %}

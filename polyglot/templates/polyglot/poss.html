@@ -1,0 +1,19 @@
+{% extends 'polyglot/base_polyglot.html' %}
+
+{% block title %}
+ PartsofSpeech -- {{block.super}}
+{% endblock %}
+
+{% block content %}
+  <h1 class="mb-5"> Parts of Speech: </h1>
+  <table class="table table-striped">
+    <tbody>
+      {% for pos in page_object.object_list %}
+        <tr>
+          <th scope="row"><a href="{{ pos.get_absolute_url }}">{{pos.rusname}}</a></th>
+          <td><b>{{pos.engname}}</b></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

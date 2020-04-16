@@ -1,0 +1,3 @@
+How the documentation is organized¶
+Tutorials take you by the hand through a series of steps to create a Web application.
+ Start here if you’re new to Django or Web application development. Also look at the “First steps”.

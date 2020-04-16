@@ -1,0 +1,55 @@
+{% extends 'anecdotes/base_anecdotes.html' %}
+
+{% block title %}
+   anecdote: {{ anecdote.id }} -- {{ block.super }}
+{% endblock %}
+
+{% block content %}
+  <h1 class="mb-5"> Anecdote: {{ anecdote.id }} </h1>
+
+  <div class="card text-left mb-4">
+    <div class="card-header">
+      <div class="row">
+        <div class="col text-left">
+          id: {{ anecdote.id }}
+        </div>
+        <div class="col text-left">
+          Pub: {{ anecdote.creationdate }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col text-left">
+          Votes: {{ anecdote.get_votes }}
+        </div>
+        <div class="col text-left">
+          Rating: {{ anecdote.get_rating }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col text-left">
+          Tags:
+          {% for tag in anecdote.tags.all %}
+            <a href="{{ tag.get_absolute_url }}"> {{ tag.title }} </a>
+          {% endfor %}
+        </div>
+        <div class="col text-left">
+          Source: {{ anecdote.source }}
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p class="card-text">      {{ anecdote.body|linebreaks }} </p>
+    </div>
+    <div class="card-footer">
+      {% if request.user.is_authenticated and request.user.is_active %}
+        <form class="" action="{{ anecdote.rate_update_url }}" method="POST">
+          {% csrf_token %}
+          <div class="form-group">
+            <input type="range" name="rate" min="1" max="10" value="{{ rate }}" class="form-control-range" id="formControlRange">
+          </div>
+          <button type="submit" class="btn btn-primary">Please, rate it!</button>
+        </form>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

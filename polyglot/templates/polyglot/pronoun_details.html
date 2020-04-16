@@ -1,0 +1,55 @@
+{% extends 'polyglot/base_polyglot.html' %}
+
+{% block title %}
+   Pronoun: {{ Pronoun.id }} -- {{ block.super }}
+{% endblock %}
+
+{% block content %}
+  <h2 class="mb-5"> Pronoun:
+      <b>
+      {% if pronoun.hword_with_cons %}
+           {{ pronoun.hword_with_cons }}
+      {% else %}
+          {{ pronoun.hword }}
+      {% endif%}
+      </b>
+  </h2>
+  <div class="card text-center mb-4 mt-4">
+    <div class="card-header">
+      <div class="row">
+        <div class="col text-left">
+          id: {{ pronoun.id }}
+        </div>
+        <div class="col text-center">
+          pronunciation: <b> {{ pronoun.pronunciation }}</b>
+            <b> {{ pronoun.hword_with_cons }}</b>
+        </div>
+        <div class="col text-right">
+         ruswords:
+            <b>
+        {% for rusword in pronoun.ruswords.all %}
+            {{ rusword.word }},
+        {% endfor %}
+            </b>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <table class="table table-borderless">
+            <tbody>
+            <div>
+            gender: {{ pronoun.gender }}
+            </div>
+            <div>
+            number: {{pronoun.number }}
+            </div>
+            <div>
+            {{ Pronoun.description }}
+            </div>
+            </tbody>
+          </table>
+
+    </div>
+  </div>
+
+{% endblock %}

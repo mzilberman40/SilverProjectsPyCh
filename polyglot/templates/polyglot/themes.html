@@ -1,0 +1,19 @@
+{% extends 'polyglot/base_polyglot.html' %}
+
+{% block title %}
+ Themes -- {{block.super}}
+{% endblock %}
+
+{% block content %}
+  <h1 class="mb-5"> Themes: </h1>
+  <table class="table table-striped">
+    <tbody>
+      {% for theme in page_object.object_list %}
+        <tr>
+          <th scope="row"><a href="{{ theme.get_absolute_url }}">{{ theme.rusname }}</a></th>
+          <td><b>{{theme.engname}}</b></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

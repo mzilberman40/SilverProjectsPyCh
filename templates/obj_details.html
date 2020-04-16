@@ -1,0 +1,33 @@
+{% extends base_app_template %}
+
+{% block title %}
+   HebrewRoot: {{ hebrewroot.id }} -- {{ block.super }}
+{% endblock %}
+
+{% block content %}
+  <h2 class="mb-5"> HebrewRoot: <b> {{ hebrewroot.root }} </b> </h2>
+
+  <div class="card text-center mb-4 mt-4">
+    <div class="card-header">
+      <div class="row">
+        <div class="col text-left">
+          id: {{ hebrewroot.id }}
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <table class="table table-borderless">
+            <tbody>
+            {% for rusword in hebrewroot.ruswords.all %}
+              <tr>
+                <td>{{ rusword.word }}</td>
+              </tr>
+              {% endfor %}
+
+            </tbody>
+          </table>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'polyglot/base_polyglot.html' %}
+
+{% block title %}
+   RusWord: {{ rusword.id }} -- {{ block.super }}
+{% endblock %}
+
+{% block content %}
+  <h1 class="mb-5"> RusWord: {{ rusword.word }} </h1>
+
+  <div class="card text-center mb-4">
+    <div class="card-header">
+      <div class="row">
+        <div class="col text-left">
+          id: {{ rusword.id }}, {{ rusword.pos }}
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p class="card-text">      {{ rusword.word }} </p>
+      <p class="card-text">      {{ rusword.description }} </p>
+
+    </div>
+  </div>
+
+{% endblock %}

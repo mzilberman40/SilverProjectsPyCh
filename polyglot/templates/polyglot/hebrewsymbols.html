@@ -1,0 +1,37 @@
+{% extends 'polyglot/base_polyglot.html' %}
+
+{% block title %}
+   HebrewSymbols -- {{ block.super }}
+{% endblock %}
+
+{% block content %}
+  <h2 class="mb-5"> Hebrew Symbols: </h2>
+<table class="table hebrew">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Название</th>
+      <th scope="col">Буква</th>
+<!--      <th scope="col"> Число </th>-->
+<!--      <th scope="col"> UTF code </th>-->
+    </tr>
+  </thead>
+  <tbody>
+    {% for letter in letters %}
+        <tr>
+            <th scope="row"> {{ letter.id }} </th>
+<!--            <td>{{ letter.hebname }}</td>-->
+            <td>{{ letter.rusname }}
+            {% if letter.name_with_mod %}/ {{ letter.name_with_mod }} {% endif %}
+            </td>
+            <td> <b>  {% if letter.name_with_mod %}  {{ letter.letter_with_mod }} / {% endif %}
+                {{ letter.letter }}
+            </b> </td>
+<!--            <td>{{ letter.number }}</td>-->
+<!--            <td>{{ letter.utf_code }}</td>-->
+        </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

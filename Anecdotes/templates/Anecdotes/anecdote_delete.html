@@ -1,0 +1,15 @@
+{% extends 'anecdotes/base_anecdotes.html' %}
+
+{% block title %}
+    Delete anecdote {{ anecdote.id }} -- {{ block.super }}
+{% endblock %}
+
+{% block content %}
+  <form action="{{ anecdote.get_delete_url }}" method="post">
+      {% csrf_token %}
+      <h3> Are you sure you want to delete this anecdote? </h3>
+      <a href="{{ anecdote.get_absolute_url }}"> No. I'm not sure :-) </a>
+      <button type="submit" name="button" class="btn btn-danger"> Yes! I'm sure !</button>
+    </form>
+
+{% endblock %}

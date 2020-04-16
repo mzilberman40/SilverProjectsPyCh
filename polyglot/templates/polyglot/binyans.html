@@ -1,0 +1,21 @@
+{% extends 'polyglot/base_polyglot.html' %}
+
+{% block title %}
+ Binyans List -- {{block.super}}
+{% endblock %}
+
+{% block content %}
+  <h1 class="mb-5"> Binyans: </h1>
+  <table class="table table-striped">
+    <tbody>
+      {% for binyan in page_object.object_list %}
+        <tr>
+          <th scope="row"><a href="{{ binyan.get_absolute_url }}">{{binyan.id}}</a></th>
+          <td><b>{{binyan.hebname}}</b></td>
+          <td><b>{{binyan.rusname}}</b></td>
+
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

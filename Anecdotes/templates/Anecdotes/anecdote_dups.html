@@ -1,0 +1,16 @@
+{% extends 'anecdotes/base_anecdotes.html' %}
+
+{% block title %}
+ Dublicates List -- {{ block.super }}
+{% endblock %}
+
+{% block content %}
+  <h1 class="mb-5"> Dublicates: </h1>
+    {% for dup in dups %}
+        <div class="container">
+            {% for anecdote in dup %}
+                {% include 'Anecdotes/includes/anecdote_card_template.html'%}
+            {% endfor %}
+        </div>
+    {% endfor %}
+{% endblock %}

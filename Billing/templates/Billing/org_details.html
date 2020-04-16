@@ -1,0 +1,31 @@
+{% extends 'Billing/base_billing.html' %}
+
+{% block title %}
+   Org: {{ org.id }} -- {{ block.super }}
+{% endblock %}
+
+{% block content %}
+  <h2 class="mb-5"> Organization: {{ org.fullname }} </h2>
+
+  <div class="card text-left mb-4">
+    <div class="card-header">
+      <div class="row">
+        <div class="col text-left">
+          <b>id: {{ org.id }}</b>
+        </div>
+        <div class="col text-left">
+          <b>{{ org.lform }}</b>
+        </div>
+        <div class="col text-left">
+          <b>{{ org.fullname }}</b>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p class="card-text">{{ org.description|linebreaks }} </p>
+    </div>
+    <!-- <div class="card-footer text-muted">
+    </div> -->
+  </div>
+
+{% endblock %}

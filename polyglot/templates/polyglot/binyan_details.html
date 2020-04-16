@@ -1,0 +1,26 @@
+{% extends 'polyglot/base_polyglot.html' %}
+
+{% block title %}
+   Binyan: {{ binyan.id }} -- {{ block.super }}
+{% endblock %}
+
+{% block content %}
+  <h1 class="mb-5"> Binyan: {{ binyan.hebname }} {{ binyan.rusname }} </h1>
+
+  <div class="card text-center mb-4">
+    <div class="card-header">
+      <div class="row">
+        <div class="col text-left">
+          id: {{ binyan.id }}
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p class="card-text">      {{ binyan.description|linebreaks }} </p>
+      {% if binyan.scheme %}
+      <img src="{{ binyan.scheme.url }}">
+      {% endif %}
+    </div>
+  </div>
+
+{% endblock %}

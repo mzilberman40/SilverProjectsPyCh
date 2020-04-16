@@ -1,0 +1,20 @@
+{% extends 'polyglot/base_polyglot.html' %}
+
+{% block title %}
+ RusWords -- {{block.super}}
+{% endblock %}
+
+{% block content %}
+  <h1 class="mb-5"> RusWords: </h1>
+  <table class="table table-striped">
+    <tbody>
+      {% for rusword in page_object.object_list %}
+        <tr>
+          <th scope="row"> <a href="{{rusword.get_absolute_url}}">{{rusword.word}}</a></th>
+          <td>{{rusword.pos}}</td>
+
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

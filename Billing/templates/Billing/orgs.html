@@ -1,0 +1,19 @@
+{% extends 'Billing/base_billing.html' %}
+
+{% block title %}
+ Organizations -- {{block.super}}
+{% endblock %}
+
+{% block content %}
+  <h1 class="mb-5"> Organizations: </h1>
+  <table class="table table-striped">
+    <tbody>
+      {% for org in page_object.object_list %}
+        <tr>
+          <th scope="row"><a href="{{ org.get_absolute_url }}">{{org.lform}}</a></th>
+          <td><b>{{ org.fullname}}</b></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
